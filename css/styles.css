@@ -1,0 +1,178 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    background-color:black;
+    background-image: url(../images/navbg1.jpg);
+    margin-bottom: 20px;
+    background-size: cover;
+}
+
+#cheatSheet{
+    height: 0px;
+    margin: auto;
+    margin-top: 20px;
+    background-image: url(../images/cheatSheet.gif);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -webkit-transition: height 1s; /* Safari */
+    transition: height 1s; 
+}
+
+#cheatButton{
+    padding:10px;
+    border-radius: 10px;
+    margin-top: 20px;   
+    background-color: dodgerblue;
+    width: 70%;
+    margin: auto;
+    cursor: pointer;
+    -webkit-transition: background-color 0.5s; /* Safari */
+    transition: background-color 0.5s; 
+}
+
+#cheatButton:hover{
+    background-color: midnightblue;
+    -webkit-transition: background-color 0.5s; /* Safari */
+    transition: background-color 0.5s;  
+}
+
+#answerStatus{
+    padding:10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Banner Stuff */
+#bannerRow{
+    padding: 0px;
+    margin: 0px;   
+}
+
+#banner{
+    background-image: url('../images/banner.jpg');
+    background-size: cover;
+    height: 120px;
+    width: 100%;
+    padding: 10%;
+}
+/* End Banner Stuff */
+
+/* Navigation Stuff */
+#navigation{
+    margin: auto;
+    padding: 2%;
+    text-align: center; 
+    color: white;
+    margin: auto;
+    margin-top: 20px;
+    height: auto;
+    margin-bottom: 20px;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -kthtml-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+#navigation div.headerLabel{
+    background-color: deepskyblue;
+    border: 6px white solid;
+    margin: auto;
+    display: inline;
+}
+
+#navigation div.circle{
+    background-image: url(../images/navbg1.jpg);
+    border: 6px white solid;
+    height:110px;
+    width: 110px;
+    border-radius: 50%;
+    margin: auto;
+    margin-top: 10px;
+    text-align: center;
+    padding-top: 10px;
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -kthtml-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    transform: rotate(0deg);
+    cursor: pointer;
+}
+
+#navigation div.circle:hover{
+    background-image: url(../images/navbg2.jpg) !important;    
+    border: 6px white solid;
+    height:110px;
+    width: 110px;
+    border-radius: 50%;
+    margin: auto;
+    margin-top: 10px;
+    text-align: center;
+    padding-top: 10px;
+    transform: rotate(360deg);
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -kthtml-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#navigation div.glyphicon{font-size: 5em;}
+
+#navigation ul li{
+    list-style: none; 
+}
+/* End Navitgation Stuff */
+
+/* Content Container Stuff */
+#contentContainer{
+    margin: auto;
+    opacity: 0;
+    padding: 0px;
+    background-color: rgba(22,22,22,0.4);
+    border-radius: 2%;
+    border: solid 16px rgba(22,22,22,0.6);
+    border-top-left-radius: 0%;
+    border-top-right-radius: 0%;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -kthtml-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+#content{
+    background-color:rgba(220,0,220, 0.0);
+    margin: auto;    
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -kthtml-transition: all 1s ease;
+    transition: all 1s ease;
+    height:auto;
+    margin-top: 20px;
+}
+
+@media (min-width: 1430px) {
+  .container {
+    width: 1400px;
+  }
+}
+@screen-lg: 1400px
+@container-large-desktop: ((1370px + @grid-gutter-width))
+    
+/* Content Container Stuff */
+
+
+
+
