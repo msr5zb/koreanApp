@@ -1,46 +1,79 @@
 $(document).ready(function(){
 
+    //Provide Word Options!
+    
+    //Generate word map based off Selection
     
     
-    //40 Chars
-
+    
     
     
     
     //Generate Word Map
     var words = {
-                                 ㄱ:"g", ㄴ:"n", ㄷ:"d", ㄹ:"r", ㅁ:"m", ㅂ:"b", ㅅ:"s", ㅇ:"ng", ㅈ:"j", ㅊ:"ch", ㅋ:"k", ㅌ:"t", ㅍ:"p", ㅎ:"h",
-                                 ㄲ:"kk", ㄸ:"tt", ㅃ:"pp", ㅆ:"ss", ㅉ:"jj",
-                                 ㅏ:"a", ㅑ:"ya", ㅓ:"eo", ㅕ:"yeo", ㅗ:"o", ㅛ:"yo", ㅜ:"u", ㅠ:"yu", ㅡ:"eu", ㅣ:"i",
-                                 ㅐ:"ae", ㅒ:"yae", ㅔ:"e", ㅖ:"ye", ㅘ:"wa", ㅙ:"wae", ㅚ:"oe", ㅝ:"wo", ㅞ:"we", ㅟ:"wi", ㅢ:"ui"   
-
+                 ㄱ:"g", ㄴ:"n", ㄷ:"d", ㄹ:"r", ㅁ:"m", ㅂ:"b", ㅅ:"s", ㅇ:"ng", ㅈ:"j", ㅊ:"ch", ㅋ:"k", ㅌ:"t", ㅍ:"p", ㅎ:"h",
+                 ㄲ:"kk", ㄸ:"tt", ㅃ:"pp", ㅆ:"ss", ㅉ:"jj",
+                 ㅏ:"a", ㅑ:"ya", ㅓ:"eo", ㅕ:"yeo", ㅗ:"o", ㅛ:"yo", ㅜ:"u", ㅠ:"yu", ㅡ:"eu", ㅣ:"i",
+                 ㅐ:"ae", ㅒ:"yae", ㅔ:"e", ㅖ:"ye", ㅘ:"wa", ㅙ:"wae", ㅚ:"oe", ㅝ:"wo", ㅞ:"we", ㅟ:"wi", ㅢ:"ui"   
     };    
+    
+    
+    var correctAnswer = updateWord();
+    var points = 0;
+    $(".choice").click(function(){
+        console.log(this.innerHTML);
+        
+        if(this.innerHTML == correctAnswer){
+            console.log("Correct!");
+            $("#choice1").css('background-color', '');
+            $("#choice2").css('background-color', '');
+            $("#choice3").css('background-color', '');
+            $("#choice4").css('background-color', '');
+            points++;
+            updatePoints(points, "correct");
+            correctAnswer = updateWord();
+            
+        }
+        else{
+            console.log("Incorrect!");
+            $(this).css('background-color', 'red');
+            points--;
+            updatePoints(points, "incorrect");
+        }
+    
+    
+    });
+    
+    
+    
+    function updateWord(){  
+        
+        $("#gameContent").css('opacity', '0');
+        var realWord = randomValueOf(words);
+        setTimeout(function() {  
+            
+            $("#wordToGuess").html(realWord); 
 
-    for (var i in words){
-        console.log(i + ":" + words[i]);
+            var fakeWordsList = generateFakeWordsList(realWord);
+            
+            $("#choice1").html(words[fakeWordsList[0]]); 
+            $("#choice2").html(words[fakeWordsList[1]]); 
+            $("#choice3").html(words[fakeWordsList[2]]); 
+            $("#choice4").html(words[fakeWordsList[3]]); 
+
+            var realChoice = Math.floor(Math.random()*4);
+            console.log("Answer is Choice: " + realChoice);
+            switch(realChoice){
+                case 0: $("#choice1").html(words[realWord]); break; 
+                case 1: $("#choice2").html(words[realWord]); break; 
+                case 2: $("#choice3").html(words[realWord]); break; 
+                case 3: $("#choice4").html(words[realWord]); break; 
+            }  
+            $("#gameContent").css('opacity', '1'); }, 300);
+        
+        return words[realWord];
     }
     
-    console.log("Begin The Test...");
-    
-    var realWord = randomValueOf(words);
-    $("#wordToGuess").html(realWord); 
-    console.log("End");
-    
-    var fakeWordsList = generateFakeWordsList(realWord);
-    
-    $("#choice1").html(words[fakeWordsList[0]]); 
-    $("#choice2").html(words[fakeWordsList[1]]); 
-    $("#choice3").html(words[fakeWordsList[2]]); 
-    $("#choice4").html(words[fakeWordsList[3]]); 
-    
-    var realChoice = Math.floor(Math.random()*4);
-    console.log("Answer is Choice: " + realChoice);
-    switch(realChoice){
-        case 0: $("#choice1").html(words[realWord]); break; 
-        case 1: $("#choice2").html(words[realWord]); break; 
-        case 2: $("#choice3").html(words[realWord]); break; 
-        case 3: $("#choice4").html(words[realWord]); break; 
-    }
 
     //Fill Word to Guess
     
@@ -97,4 +130,24 @@ $(document).ready(function(){
         var key = keys[rnd];
         return key;
     } 
+    
+    function updatePoints(points, value){
+        
+        if(value == "incorrect"){
+            //$("#gamePoints").css('color', 'red'); 
+            $("#pointsAdder").html("-1");
+            $("#pointsAdder").css('color', 'red');
+            setTimeout(function() { $("#pointsAdder").html(''); }, 400);
+            setTimeout(function() { $("#pointsAdder").css('color', ''); }, 400);
+        }
+        else{
+            //$("#gamePoints").css('color', 'green'); 
+            $("#pointsAdder").html("+1");
+            $("#pointsAdder").css('color', 'green');
+            setTimeout(function() { $("#pointsAdder").html(''); }, 400);
+            setTimeout(function() { $("#pointsAdder").css('color', ''); }, 400);
+        }
+        $("#gamePoints").html(points);
+        //setTimeout(function() { $("#gamePoints").css('color', ''); }, 400);
+    }
 });

@@ -15,8 +15,10 @@
     <!-- Local Stuffs -->
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" type="text/css" href="css/game.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/game.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
     
 
 </head>
@@ -25,40 +27,53 @@
     <div class="container" id="contentContainer">
         <!-- Banner -->
         <div class="row" id="bannerRow">
-            <div class="col-md-12" id="banner"></div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="banner"></div>
         </div>
         <!-- End Banner -->
 
         <div class="row" id="content">
             
             <!-- Page Content -->
-            <div class="col-md-12" id="">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="">
                 <!-- Header -->
                 <div class="row">
-                    <div class="col-md-12" id="">
-                        <div style="font-size:4.0em;">Guessing Game</div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="">
+                        <div style="font-size:3.0em;">Guessing Game</div>
                     </div>
                 </div>
                 <!-- End Header Section-->
                 
                 <!-- Game Section -->
                 <div class="row">
-                    <div class="col-md-8 col-sm-8" id="">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="">
                         <div id="gameContent">
-                            <div class="col-md-12 col-sm-12 gameFont">Guess This Word: <span id="wordToGuess" >hi</span></div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gameFont">Guess This Word: <span id="wordToGuess" >hi</span></div>
                             
                             <div class="row">
-                                <div class="col-md-4 col-sm-4 gameFont" id="choice1">Choice 1</div>
-                                <div class="col-md-4 col-sm-4 gameFont" id="choice2">Choice 2</div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gameFont choice" id="choice1">Choice 1</div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gameFont choice" id="choice2">Choice 2</div>
                             </div>
                             <div class="row">
-                                <div class="col-md-4 col-sm-4 gameFont" id="choice3">Choice 3</div>
-                                <div class="col-md-4 col-sm-4 gameFont" id="choice4">Choice 4</div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gameFont choice" id="choice3">Choice 3</div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gameFont choice" id="choice4">Choice 4</div>
                             </div>
-    
+                         </div> 
+                        
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4 gameFont alignRight">Score: <span id="gamePoints"></span></div>                                
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 gameFont alignLeft"><span id="pointsAdder"></span></div>
+
                         </div>
+                            
+
+                        
+
+    
+                       
                     </div>
-                    <div class="col-md-4 col-sm-4" id="dropBox">Drop Word Here!</div>
                     
                 </div>
                 <!-- End Game Section -->

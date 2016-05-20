@@ -1,3 +1,12 @@
+#gameContent{
+     -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -kthtml-transition: all 0.3s ease;
+    transition: all 0.3s ease;   
+}
+
 #dropBox{
     background-color:white;
     background-size: cover;
@@ -5,6 +14,69 @@
     color:black;
 }
 
-.gameFont{
-    font-size: 2.0em;
+.choice{
+    cursor: pointer;
+    background-color: blueviolet;
+    z-index: 2;
+    margin: 4px 4px 0px 0px;
 }
+
+.choice:hover{
+    cursor: pointer;
+    background-color: violet;
+
+}
+
+#gamePoints{
+    font-size: 0.8em;
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -kthtml-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#pointsAdder{
+    font-size: 0.8em;
+    z-index: 2;
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -kthtml-transition: all 0.5s ease;
+    transition: all 0.5s ease; 
+}
+
+.gameFont{
+    font-size: 2.6em;
+}
+
+.alignLeft{
+    text-align: left;
+}
+
+.alignRight{
+    text-align: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
