@@ -14,114 +14,11 @@
     
     <!-- Local Stuffs -->
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/game.css">
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/game.js"></script>
     
-    
-    <script>
-    $( document ).ready(function() {
-        console.log( "ready!" );
-        
-        function updateWord(){
-            // jQuery methods go here.
-            if(flag == 1){
-                $("#answerStatus").html("Correct: " + koreanSymbols[symbolIndex]+ " = " + englishCounterParts[symbolIndex]);   
-                $("#answerStatus").css("background-color", "green");
-                symbolIndex = Math.floor((Math.random() * 40));
-            }
-            else if(flag == -1){
-                $("#answerStatus").html("Incorrect: " + koreanSymbols[symbolIndex]+ " = " + englishCounterParts[symbolIndex]);   
-                $("#answerStatus").css("background-color", "red");
-            }
-            else{
-                $("#answerStatus").html("Best of Luck!"); 
-            }
-                  
-            $("#symbol").html(koreanSymbols[symbolIndex]); 
-            console.log(englishCounterParts[symbolIndex]);
-            $("#inputlg").val("");
-            $("#points").html("Points: " + points);   
-        }
-                                         
-        //40 Chars
-        var koreanSymbols = 
-                            [
-                                 "ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ", "ㅅ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ",
-                                 "ㄲ", "ㄸ", "ㅃ", "ㅆ", "ㅉ",
-                                 "ㅏ", "ㅑ", "ㅓ", "ㅕ", "ㅗ", "ㅛ", "ㅜ", "ㅠ", "ㅡ", "ㅣ",
-                                 "ㅐ", "ㅒ", "ㅔ", "ㅖ", "ㅘ", "ㅙ", "ㅚ", "ㅝ", "ㅞ", "ㅟ", "ㅢ"     
-                            ];
-        
-        var englishCounterParts = 
-                            [
-                                 "g", "n", "d", "r", "m", "b", "s", "ng", "j", "ch", "k", "t", "p", "h",
-                                 "kk", "tt", "pp", "ss", "jj",
-                                 "a", "ya", "eo", "yeo", "o", "yo", "u", "yu", "eu", "i",
-                                 "ae", "yae", "e", "ye", "wa", "wae", "oe", "wo", "we", "wi", "ui"
-                            ];
-        
-        var symbolIndex = Math.floor((Math.random() * 40));
-        var points = 0;
-        var flag = 0;
-        var cheatFlag = 0;
-        updateWord();
-        
-      
-        $("#cheatButton" ).click(function() {
-           console.log("Cheats!");
-            if(cheatFlag == 0){
-                $(this).html("Hide Cheat Sheet");
-                cheatFlag = -1;
-                $("#cheatSheet").css("height", "500px");
-                $("#cheatButton").hover(function(){
-                    $(this).css("background-color", "red");
-                    }, function(){
-                    $(this).css("background-color", "darkred");
-                });
-            }
-            else{
-                $(this).html("Show Cheat Sheet");
-                cheatFlag = 0;
-                $("#cheatSheet").css("height", "0px");
-                $("#cheatButton").hover(function(){
-                    $(this).css("background-color", "midnightblue");
-                    }, function(){
-                    $(this).css("background-color", "dodgerblue");
-                });
-            }
-        });
-        
-       
-        
-        $("#inputlg").keyup(function (e) {
-            if (e.keyCode == 13) {
-                console.log("Howdy!");
-                
-                console.log(koreanSymbols[symbolIndex]);
-                
-                if($("#inputlg").val() == englishCounterParts[symbolIndex]){
-                    console.log("Correct!");
-                    points++;
-                    flag = 1;
-                    updateWord();
-                }
-                else{
-                    console.log("Incorrect!");
-                    points--;
-                    points--;
-                    flag = -1;
-                    updateWord();
-                }
-                console.log(points);
-            }
-        });
-        
- 
-    });
-        
-        
-   
-    
-    </script>
+
 </head>
 <body>
     <!-- Page Container -->
@@ -132,57 +29,40 @@
         </div>
         <!-- End Banner -->
 
-        <div class="row" id="navigation">
-            <!-- Side Navigation 
-            <div class="col-md-2">
-                <div class="circle navHandler glyphicon glyphicon-user" id="aboutMe"></div>
-                <div class="circle navHandler glyphicon glyphicon-education" id="education"></div>
-                <div class="circle navHandler glyphicon glyphicon-leaf" id="experience"></div>
-                <div class="circle navHandler glyphicon glyphicon-folder-open" id="projects"></div>
-                <div class="circle navHandler glyphicon glyphicon-briefcase" id="pastCourseWork"></div>
-            </div>
-            <!-- End Side Navigation -->
-
+        <div class="row" id="content">
             
             <!-- Page Content -->
             <div class="col-md-12" id="">
+                <!-- Header -->
                 <div class="row">
                     <div class="col-md-12" id="">
-                        <div id="symbol" style="font-size:4.0em;"></div>
+                        <div style="font-size:4.0em;">Guessing Game</div>
                     </div>
                 </div>
+                <!-- End Header Section-->
+                
+                <!-- Game Section -->
                 <div class="row">
-                    <div class="col-md-12" id="">
-                          <div class="form-group">
-                            <div class="col-xs-4"></div>
-                            <div class="col-xs-4">
-                                <label for="inputlg">Your Answer</label>
-                                <input class="form-control input-lg" id="inputlg" type="text" autocomplete="off">
-                                <div id="answerStatus"></div>
+                    <div class="col-md-8 col-sm-8" id="">
+                        <div id="gameContent">
+                            <div class="col-md-12 col-sm-12 gameFont">Guess This Word: <span id="wordToGuess" >hi</span></div>
+                            
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4 gameFont" id="choice1">Choice 1</div>
+                                <div class="col-md-4 col-sm-4 gameFont" id="choice2">Choice 2</div>
                             </div>
-                            <div class="col-xs-2" id="points"></div>
-                          </div>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4 gameFont" id="choice3">Choice 3</div>
+                                <div class="col-md-4 col-sm-4 gameFont" id="choice4">Choice 4</div>
+                            </div>
+    
+                        </div>
                     </div>
-                </div> 
-                <div class="row">
-                    <div class="col-xs-4"></div>
-                    <div class="col-xs-4">
-                        <div id="cheatButton">Show Cheat Sheet</div>
-                    </div>
-                    <div class="col-xs-4"></div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-2"></div>
-                    <div class="col-xs-8"><div id="cheatSheet"></div></div>
-                    <div class="col-xs-2"></div>
+                    <div class="col-md-4 col-sm-4" id="dropBox">Drop Word Here!</div>
                     
                 </div>
-                     
-                     
+                <!-- End Game Section -->
                 
-            
-            
-            
             </div>
             <!-- End Page Content -->
         </div> 
@@ -191,14 +71,14 @@
         <nav class="navbar navbar-inverse navbar-bottom" style="padding:0px; margin: 0px;">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#" onclick="$('html, body').animate({scrollTop: $('#navigation').offset().top-50}, 1000);return false;">To Top</a>
+                    <a class="navbar-brand" href="#" onclick="$('html, body').animate({scrollTop: $('#content').offset().top-50}, 1000);return false;">To Top</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active" ><a id="aboutMeLi" href="#" class="navHandler" onclick='return false;'>Alphabet</a></li> 
-                    <li ><a id="educationLi" href="#" class="navHandler" onclick='return false;' >Education</a></li> 
-                    <li ><a id="experienceLi" href="#" class="navHandler" onclick='return false;' >Experience</a></li> 
-                    <li ><a id="projectsLi" href="#" class="navHandler" onclick='return false;' >Projects</a></li> 
-                    <li ><a id="pastCourseWorkLi" href="#" class="navHandler" onclick='return false;' >Past Course Work</a></li> 
+                    <li><a id="alphabet" href="alphabet.html" class="navHandler">Alphabet</a></li> 
+                    <li><a id="educationLi" href="basics.html" class="navHandler">Basics</a></li> 
+                    <li class="active"><a id="experienceLi" href="#" class="navHandler">Game</a></li> 
+                    <li><a id="projectsLi" href="#" class="navHandler" onclick='return false;' >Projects</a></li> 
+                    <li><a id="pastCourseWorkLi" href="#" class="navHandler" onclick='return false;' >Past Course Work</a></li> 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href='https://profiles.looksharp.com/1558396-michael-rallo?utm_source=clipboard&utm_medium=profile_share&u' target='_blank'><span class="glyphicon glyphicon-user"></span> LookSharp</a></li>
