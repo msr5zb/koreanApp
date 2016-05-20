@@ -11,11 +11,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>    
-   
     
     <!-- Local Stuffs -->
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <script type="text/javascript" src="js/main.js"></script>
+    
+
 </head>
 <body>
     <!-- Page Container -->
@@ -26,19 +27,25 @@
         </div>
         <!-- End Banner -->
 
-        <div class="row" id="navigation">
-            <!-- Side Navigation -->
-            <div class="col-md-2">
-                <div class="circle navHandler glyphicon glyphicon-user" id="aboutMe"></div>
-                <div class="circle navHandler glyphicon glyphicon-education" id="education"></div>
-                <div class="circle navHandler glyphicon glyphicon-leaf" id="experience"></div>
-                <div class="circle navHandler glyphicon glyphicon-folder-open" id="projects"></div>
-                <div class="circle navHandler glyphicon glyphicon-briefcase" id="pastCourseWork"></div>
+        <div class="row" id="content">
+            <!-- Side Navigation --> 
+            <div class="col-md-2" id="navigation">
+                <div class="circle navHandler glyphicon" id="aboutMe"><span class="centerMe">Colors</span></div>
+                <div class="circle navHandler glyphicon" id="education"><span class="centerMe">Numbers</span></div>
+                <div class="circle navHandler glyphicon" id="experience"><span class="centerMe">Foods</span></div>
+                <div class="circle navHandler glyphicon" id="projects"><span class="centerMe">Animals</span></div>
+                <div class="circle navHandler glyphicon" id="pastCourseWork"><span class="centerMe">Stuff</span></div>
             </div>
             <!-- End Side Navigation -->
-
+            
             <!-- Page Content -->
-            <div class="col-md-10" id="content"></div>
+            <div class="col-md-10" id="">
+                <div class="row">
+                    <div class="col-md-12" id="">
+                        <div style="font-size:4.0em;">Click a Subject to learn more!</div>
+                    </div>
+                </div>
+            </div>
             <!-- End Page Content -->
         </div> 
 
@@ -46,14 +53,14 @@
         <nav class="navbar navbar-inverse navbar-bottom" style="padding:0px; margin: 0px;">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#" onclick="$('html, body').animate({scrollTop: $('#navigation').offset().top-50}, 1000);return false;">To Top</a>
+                    <a class="navbar-brand" href="#" onclick="$('html, body').animate({scrollTop: $('#content').offset().top-50}, 1000);return false;">To Top</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active" ><a id="aboutMeLi" href="#" class="navHandler" onclick='return false;'>About Me</a></li> 
-                    <li ><a id="educationLi" href="#" class="navHandler" onclick='return false;' >Education</a></li> 
-                    <li ><a id="experienceLi" href="#" class="navHandler" onclick='return false;' >Experience</a></li> 
-                    <li ><a id="projectsLi" href="#" class="navHandler" onclick='return false;' >Projects</a></li> 
-                    <li ><a id="pastCourseWorkLi" href="#" class="navHandler" onclick='return false;' >Past Course Work</a></li> 
+                    <li><a id="alphabet" href="alphabet.html" class="navHandler">Alphabet</a></li> 
+                    <li class="active"><a id="educationLi" href="basics.html" class="navHandler">Basics</a></li> 
+                    <li><a id="experienceLi" href="#" class="navHandler" onclick='return false;' >Experience</a></li> 
+                    <li><a id="projectsLi" href="#" class="navHandler" onclick='return false;' >Projects</a></li> 
+                    <li><a id="pastCourseWorkLi" href="#" class="navHandler" onclick='return false;' >Past Course Work</a></li> 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href='https://profiles.looksharp.com/1558396-michael-rallo?utm_source=clipboard&utm_medium=profile_share&u' target='_blank'><span class="glyphicon glyphicon-user"></span> LookSharp</a></li>

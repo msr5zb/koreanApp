@@ -15,6 +15,7 @@
     <!-- Local Stuffs -->
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/alphabet.js"></script>
     
 
 </head>
@@ -33,9 +34,41 @@
             <div class="col-md-12" id="">
                 <div class="row">
                     <div class="col-md-12" id="">
-                        <div style="font-size:4.0em;">Welcome to my Korean Learning Site :o</div>
+                        <div id="symbol" style="font-size:4.0em;"></div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-12" id="">
+                          <div class="form-group">
+                            <div class="col-xs-4"></div>
+                            <div class="col-xs-4">
+                                <label for="inputlg">Your Answer</label>
+                                <input class="form-control input-lg" id="inputlg" type="text" autocomplete="off">
+                                <div id="answerStatus"></div>
+                            </div>
+                            <div class="col-xs-2" id="points"></div>
+                          </div>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-4">
+                        <div id="cheatButton">Show Cheat Sheet</div>
+                    </div>
+                    <div class="col-xs-4"></div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2"></div>
+                    <div class="col-xs-8"><div id="cheatSheet"></div></div>
+                    <div class="col-xs-2"></div>
+                    
+                </div>
+                     
+                     
+                
+            
+            
+            
             </div>
             <!-- End Page Content -->
         </div> 
@@ -47,7 +80,8 @@
                     <a class="navbar-brand" href="#" onclick="$('html, body').animate({scrollTop: $('#content').offset().top-50}, 1000);return false;">To Top</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li><a id="alphabet" href="alphabet.html" class="navHandler">Alphabet</a></li> 
+                    
+                    <li class="active"><a id="alphabet" href="alphabet.html" class="navHandler" onclick='return false;'>Alphabet</a></li> 
                     <li><a id="educationLi" href="basics.html" class="navHandler">Basics</a></li> 
                     <li><a id="experienceLi" href="#" class="navHandler" onclick='return false;' >Experience</a></li> 
                     <li><a id="projectsLi" href="#" class="navHandler" onclick='return false;' >Projects</a></li> 

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Michael Rallo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- BootStrap Stuggs -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>    
+    
+    <!-- Local Stuffs -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script type="text/javascript" src="js/main.js"></script>
+    
+    
+    <script>
+    $( document ).ready(function() {
+        console.log( "ready!" );
+        
+        function updateWord(){
+            // jQuery methods go here.
+            if(flag == 1){
+                $("#answerStatus").html("Correct: " + koreanSymbols[symbolIndex]+ " = " + englishCounterParts[symbolIndex]);   
+                $("#answerStatus").css("background-color", "green");
+                symbolIndex = Math.floor((Math.random() * 40));
+            }
+            else if(flag == -1){
+                $("#answerStatus").html("Incorrect: " + koreanSymbols[symbolIndex]+ " = " + englishCounterParts[symbolIndex]);   
+                $("#answerStatus").css("background-color", "red");
+            }
+            else{
+                $("#answerStatus").html("Best of Luck!"); 
+            }
+                  
+            $("#symbol").html(koreanSymbols[symbolIndex]); 
+            console.log(englishCounterParts[symbolIndex]);
+            $("#inputlg").val("");
+            $("#points").html("Points: " + points);   
+        }
+                                         
+        //40 Chars
+        var koreanSymbols = 
+                            [
+                                 "ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ", "ㅅ", "ㅇ", "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ",
+                                 "ㄲ", "ㄸ", "ㅃ", "ㅆ", "ㅉ",
+                                 "ㅏ", "ㅑ", "ㅓ", "ㅕ", "ㅗ", "ㅛ", "ㅜ", "ㅠ", "ㅡ", "ㅣ",
+                                 "ㅐ", "ㅒ", "ㅔ", "ㅖ", "ㅘ", "ㅙ", "ㅚ", "ㅝ", "ㅞ", "ㅟ", "ㅢ"     
+                            ];
+        
+        var englishCounterParts = 
+                            [
+                                 "g", "n", "d", "r", "m", "b", "s", "ng", "j", "ch", "k", "t", "p", "h",
+                                 "kk", "tt", "pp", "ss", "jj",
+                                 "a", "ya", "eo", "yeo", "o", "yo", "u", "yu", "eu", "i",
+                                 "ae", "yae", "e", "ye", "wa", "wae", "oe", "wo", "we", "wi", "ui"
+                            ];
+        
+        var symbolIndex = Math.floor((Math.random() * 40));
+        var points = 0;
+        var flag = 0;
+        var cheatFlag = 0;
+        updateWord();
+        
+      
+        $("#cheatButton" ).click(function() {
+           console.log("Cheats!");
+            if(cheatFlag == 0){
+                $(this).html("Hide Cheat Sheet");
+                cheatFlag = -1;
+                $("#cheatSheet").css("height", "500px");
+                $("#cheatButton").hover(function(){
+                    $(this).css("background-color", "red");
+                    }, function(){
+                    $(this).css("background-color", "darkred");
+                });
+            }
+            else{
+                $(this).html("Show Cheat Sheet");
+                cheatFlag = 0;
+                $("#cheatSheet").css("height", "0px");
+                $("#cheatButton").hover(function(){
+                    $(this).css("background-color", "midnightblue");
+                    }, function(){
+                    $(this).css("background-color", "dodgerblue");
+                });
+            }
+        });
+        
+       
+        
+        $("#inputlg").keyup(function (e) {
+            if (e.keyCode == 13) {
+                console.log("Howdy!");
+                
+                console.log(koreanSymbols[symbolIndex]);
+                
+                if($("#inputlg").val() == englishCounterParts[symbolIndex]){
+                    console.log("Correct!");
+                    points++;
+                    flag = 1;
+                    updateWord();
+                }
+                else{
+                    console.log("Incorrect!");
+                    points--;
+                    points--;
+                    flag = -1;
+                    updateWord();
+                }
+                console.log(points);
+            }
+        });
+        
+ 
+    });
+        
+        
+   
+    
+    </script>
+</head>
+<body>
+    <!-- Page Container -->
+    <div class="container" id="contentContainer">
+        <!-- Banner -->
+        <div class="row" id="bannerRow">
+            <div class="col-md-12" id="banner"></div>
+        </div>
+        <!-- End Banner -->
+
+        <div class="row" id="navigation">
+            <!-- Side Navigation 
+            <div class="col-md-2">
+                <div class="circle navHandler glyphicon glyphicon-user" id="aboutMe"></div>
+                <div class="circle navHandler glyphicon glyphicon-education" id="education"></div>
+                <div class="circle navHandler glyphicon glyphicon-leaf" id="experience"></div>
+                <div class="circle navHandler glyphicon glyphicon-folder-open" id="projects"></div>
+                <div class="circle navHandler glyphicon glyphicon-briefcase" id="pastCourseWork"></div>
+            </div>
+            <!-- End Side Navigation -->
+
+            
+            <!-- Page Content -->
+            <div class="col-md-12" id="">
+                <div class="row">
+                    <div class="col-md-12" id="">
+                        <div id="symbol" style="font-size:4.0em;"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" id="">
+                          <div class="form-group">
+                            <div class="col-xs-4"></div>
+                            <div class="col-xs-4">
+                                <label for="inputlg">Your Answer</label>
+                                <input class="form-control input-lg" id="inputlg" type="text" autocomplete="off">
+                                <div id="answerStatus"></div>
+                            </div>
+                            <div class="col-xs-2" id="points"></div>
+                          </div>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="col-xs-4"></div>
+                    <div class="col-xs-4">
+                        <div id="cheatButton">Show Cheat Sheet</div>
+                    </div>
+                    <div class="col-xs-4"></div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2"></div>
+                    <div class="col-xs-8"><div id="cheatSheet"></div></div>
+                    <div class="col-xs-2"></div>
+                    
+                </div>
+                     
+                     
+                
+            
+            
+            
+            </div>
+            <!-- End Page Content -->
+        </div> 
+
+        <!-- Footer Nav Bar -->
+        <nav class="navbar navbar-inverse navbar-bottom" style="padding:0px; margin: 0px;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#" onclick="$('html, body').animate({scrollTop: $('#navigation').offset().top-50}, 1000);return false;">To Top</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active" ><a id="aboutMeLi" href="#" class="navHandler" onclick='return false;'>Alphabet</a></li> 
+                    <li ><a id="educationLi" href="#" class="navHandler" onclick='return false;' >Education</a></li> 
+                    <li ><a id="experienceLi" href="#" class="navHandler" onclick='return false;' >Experience</a></li> 
+                    <li ><a id="projectsLi" href="#" class="navHandler" onclick='return false;' >Projects</a></li> 
+                    <li ><a id="pastCourseWorkLi" href="#" class="navHandler" onclick='return false;' >Past Course Work</a></li> 
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href='https://profiles.looksharp.com/1558396-michael-rallo?utm_source=clipboard&utm_medium=profile_share&u' target='_blank'><span class="glyphicon glyphicon-user"></span> LookSharp</a></li>
+                    <li><a href='https://www.linkedin.com/in/michael-rallo-29980a114' target='_blank'><i class="fa fa-linkedin-square"></i> LinkedIn</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- End Footer Nav Bar -->
+    </div>
+    <!-- End Page Container -->
+</body>
+</html>

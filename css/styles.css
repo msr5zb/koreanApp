@@ -58,8 +58,27 @@ body{
     height: 120px;
     width: 100%;
     padding: 10%;
+    cursor: pointer;
 }
 /* End Banner Stuff */
+
+/* Content alignment Stuffs */
+#content{
+    margin: auto;
+    padding: 2%;
+    text-align: center; 
+    color: white;
+    margin: auto;
+    margin-top: 20px;
+    height: auto;
+    margin-bottom: 20px;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -kthtml-transition: all 1s ease;
+    transition: all 1s ease;
+}
 
 /* Navigation Stuff */
 #navigation{
@@ -125,7 +144,13 @@ body{
     transition: all 0.5s ease;
 }
 
-#navigation div.glyphicon{font-size: 5em;}
+#navigation div.glyphicon{font-size: 1.8em; text-align:center;align-content: center;}
+
+.centerMe{ 
+    display: inline-block;
+    vertical-align: bottom;
+    padding-top: 20%;
+}
 
 #navigation ul li{
     list-style: none; 
