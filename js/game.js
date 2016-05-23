@@ -4,10 +4,35 @@ $(document).ready(function(){
     
     //Generate word map based off Selection
     
+    $("#wordChoice").click(function(){
+        
+        console.log("Sending");
+        
+        var wordBag = {};
+        
+        $('input[type=checkbox]').each(function () {
+           if (this.checked) {
+               
+               var wordChoice = $(this).val();
+               var choice = wordChoice.split(":");
+               wordBag[choice[0]] = choice[1]
+           }
+        });
+        
+        for(var word in wordBag){
+            console.log(word + ":" + wordBag[word]);   
+        }
+        
+        
+        
+    });
     
     
     
     
+    
+    
+
     
     //Generate Word Map
     var words = {
