@@ -1,5 +1,5 @@
 #gameInnerContent{
-    visibility: hidden;
+    display: none;
 }
 
 #gameContent{

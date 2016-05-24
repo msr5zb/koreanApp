@@ -5,16 +5,7 @@ $(document).ready(function(){
     //Generate word map based off Selection
     
     //Find Group Labels to exclude them.
-    var words = {};
     
-    $("#wordChoiceMenu").click(function(){
-        console.log("More Words!");
-         $("#gameInnerContent").css('display', 'none');
-       $('#wordSelection').css('display', 'block');
-       
-        
-        
-    });
     
     $(".checkall").click(function(){
         $(this).parents('tr').find(':checkbox').prop('checked', this.checked);
@@ -24,11 +15,7 @@ $(document).ready(function(){
         
         console.log("Sending");
         
-        //Make sure map is clean
-        for(var word in words){
-            delete words[word];   
-        }
-        
+        var wordBag = {};
         
         $('input[type=checkbox]').each(function () {
            if (this.checked) {
@@ -36,24 +23,13 @@ $(document).ready(function(){
                var wordChoice = $(this).val();
                var choice = wordChoice.split(":");
                if($(this).val() != 'group')
-               words[choice[0]] = choice[1]
+               wordBag[choice[0]] = choice[1]
            }
         });
         
-        for(var word in words){
-            console.log(word + ":" + words[word]);   
+        for(var word in wordBag){
+            console.log(word + ":" + wordBag[word]);   
         }
-        
-        if(Object.keys(words).length > 4){
-            $('#wordSelection').css('display', 'none');
-            $("#gameInnerContent").css('display', 'block');
-            beginGame();
-        }
-        else{
-            console.log("Not enough words sleetced!");
-        }
-        
-        //$("#gameInnerContent").css('visibility', 'hidden');
         
         
         
@@ -67,43 +43,39 @@ $(document).ready(function(){
 
     
     //Generate Word Map
-   /* var words = {
+    var words = {
                  ㄱ:"g", ㄴ:"n", ㄷ:"d", ㄹ:"r", ㅁ:"m", ㅂ:"b", ㅅ:"s", ㅇ:"ng", ㅈ:"j", ㅊ:"ch", ㅋ:"k", ㅌ:"t", ㅍ:"p", ㅎ:"h",
                  ㄲ:"kk", ㄸ:"tt", ㅃ:"pp", ㅆ:"ss", ㅉ:"jj",
                  ㅏ:"a", ㅑ:"ya", ㅓ:"eo", ㅕ:"yeo", ㅗ:"o", ㅛ:"yo", ㅜ:"u", ㅠ:"yu", ㅡ:"eu", ㅣ:"i",
                  ㅐ:"ae", ㅒ:"yae", ㅔ:"e", ㅖ:"ye", ㅘ:"wa", ㅙ:"wae", ㅚ:"oe", ㅝ:"wo", ㅞ:"we", ㅟ:"wi", ㅢ:"ui"   
-    };    */
+    };    
     
-    function beginGame(){
-        var correctAnswer = updateWord();
-        var points = 0;
-        $(".choice").click(function(){
-            console.log(this.innerHTML);
-
-            if(this.innerHTML == correctAnswer){
-                console.log("Correct!");
-                $("#choice1").css('background-color', '');
-                $("#choice2").css('background-color', '');
-                $("#choice3").css('background-color', '');
-                $("#choice4").css('background-color', '');
-                points++;
-                updatePoints(points, "correct");
-                correctAnswer = updateWord();
-
-            }
-            else{
-                console.log("Incorrect!");
-                $(this).css('background-color', 'red');
-                points--;
-                updatePoints(points, "incorrect");
-            }
-
-
-        }); 
+    
+    var correctAnswer = updateWord();
+    var points = 0;
+    $(".choice").click(function(){
+        console.log(this.innerHTML);
         
-    }
+        if(this.innerHTML == correctAnswer){
+            console.log("Correct!");
+            $("#choice1").css('background-color', '');
+            $("#choice2").css('background-color', '');
+            $("#choice3").css('background-color', '');
+            $("#choice4").css('background-color', '');
+            points++;
+            updatePoints(points, "correct");
+            correctAnswer = updateWord();
+            
+        }
+        else{
+            console.log("Incorrect!");
+            $(this).css('background-color', 'red');
+            points--;
+            updatePoints(points, "incorrect");
+        }
     
-   
+    
+    });
     
     
     
